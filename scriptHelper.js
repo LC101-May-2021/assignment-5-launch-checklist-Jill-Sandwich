@@ -17,11 +17,22 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 function validateInput(testInput) {
-   
+    if (testInput === Number){
+        return "Is a Number";
+    } else if (isNaN(testInput) === true){
+        return "Not a Number";
+    } else if (testInput === ""){
+        return "Empty";
+    }
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-   
+    let pilotName = document.querySelector("input[name=pilotName]");
+    let copilotName = document.querySelector("input[name=copilotName]");
+    let fuelLevelL = document.querySelector("input[name=fuelLevel]");
+    let cargoMass = document.querySelector("input[name=cargoMass]");
+    validateInput(document, list, pilotName, copilotName, fuelLevelL, cargoMass);
+    //update shuttle requirements here//
 }
 
 async function myFetch() {
@@ -41,3 +52,4 @@ module.exports.validateInput = validateInput;
 module.exports.formSubmission = formSubmission;
 module.exports.pickPlanet = pickPlanet; 
 module.exports.myFetch = myFetch;
+
